@@ -13,4 +13,4 @@ RUN chown -R appuser:appgroup /app
 USER appuser
 EXPOSE 5000
 ENTRYPOINT ["dumb-init", "--"]
-CMD ["npm", "src/index.js"]
+CMD ["node", "src/index.js"]
