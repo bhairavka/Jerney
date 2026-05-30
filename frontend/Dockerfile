@@ -5,7 +5,7 @@ RUN npm ci && npm cache clean --force
 COPY . .
 RUN npm run build
 
-//production
+#production
 FROM nginx:1.25-alpine as production
 RUN rm -r /etc/nginx/conf.d/default.conf /usr/share/nginx/html/*
 COPY ./nginx.conf /etc/nginx/conf.d/
