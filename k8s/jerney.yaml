@@ -26,7 +26,7 @@ metadata:
  name: jerney-ebs-sc
  labels:
   app.kubernetes.io/part-of: jerney
-provisioners: ebs.csi.eks.amazonaws.com
+provisioner: ebs.csi.eks.amazonaws.com
 allowVolumeExpansion: true
 volumeBindingMode: WaitFortheFirstConsumer
 parameters:
