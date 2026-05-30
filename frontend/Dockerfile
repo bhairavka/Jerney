@@ -10,7 +10,8 @@ FROM nginx:1.25-alpine as production
 RUN rm -r /etc/nginx/conf.d/default.conf /usr/share/nginx/html/*
 COPY ./nginx.conf /etc/nginx/conf.d/
 COPY --from=build /app/dist /usr/share/nginx/html
-RUN chown -R nginx:nginx /usr/share/nginx/html && \
+RUN mkdir -p /var/cache/nginx  /var/logs/nginx  /var/run && \
+     chown -R nginx:nginx /usr/share/nginx/html && \
      chown -R nginx:nginx /var/cache/nginx && \
      chown -R nginx:nginx /var/logs/nginx && \
      touch /var/run/nginx.pid && \
