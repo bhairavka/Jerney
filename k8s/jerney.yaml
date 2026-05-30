@@ -5,7 +5,7 @@ metadata:
  name: jerney
  labels: 
   app.kubernetes.io/part-of: jerney 
-  ---
+---
 # secrets for db's credentials
 apiVersion: v1
 kind: Secret
@@ -19,7 +19,7 @@ data:
  POSTGRES_USER: amVybmV5X3VzZXI=
  POSTGRES_PASSWORD: amVybmV5X3Bhc3NfMjAyNg==
  POSTGRES_DB: amVybmV5X2Ri 
- ---
+---
 #storage for db
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -34,7 +34,7 @@ parameters:
  type: gp3
  encrypted: "true"
 reclaimPolicy: retain
- ---
+---
 # persitent volume claim for db
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -51,7 +51,7 @@ spec:
  resources:
    requests:
     storage: "10Gi"
- ---
+---
 # deployment for db
 apiVersion: apps/v1
 kind: Deployment
@@ -121,7 +121,7 @@ spec:
     - name: db-storage
       persistentVolumeClaim:
        claimName: jerney-db-pvc
-  ---
+---
 # service for db
 apiVersion: v1
 kind: Service
@@ -141,7 +141,7 @@ spec:
   - targetPort: 5432
     port: 5432
     protocol: TCP
- ---
+---
 # deployment for backend application
 apiVersion: apps/v1
 kind: Deployment
@@ -239,7 +239,7 @@ spec:
        initialDelaySeconds: 5
        periodSeconds: 5
        timeoutSeconds: 3
- ---
+---
 # service for backend application
 apiVersion: v1
 kind: Service
@@ -258,7 +258,7 @@ spec:
   - targetPort: 5000
     port: 5000
     protocol: TCP
- ---
+---
 #deployment for frontend application buy
 apiVersion: apps/v1
 kind: Deployment
@@ -317,7 +317,7 @@ spec:
         port: 8080
        initialDelaySeconds: 3
        periodSeconds: 5
-  ---
+---
 # service for frontend application
 apiVersion: v1
 kind: Service
@@ -336,7 +336,7 @@ spec:
   - targetPort: 8080
     port: 8080
     protocol: TCP
- ---
+---
 #network policy to allow traffic from frontend to backend and backend to db
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -359,7 +359,7 @@ spec:
     ports:
      - port: 5432
        protocol: TCP
- ---
+---
 #network policy to allow traffic from frontend to backend TO
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
