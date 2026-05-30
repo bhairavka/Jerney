@@ -354,7 +354,7 @@ spec:
     ports:
      - port: 5432
        protocol: TCP
-#network policy to allow traffic from frontend to backend
+#network policy to allow traffic from frontend to backend TO
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -374,45 +374,3 @@ spec:
     ports:
      - port: 5000
        protocol: TCP
-	
-		 
-		
-		  
-		 
-		 
-			
-			 
-	
-			   
-		
-		  
-	 
-	 
-	  
-	  
-    
-		 
-		
-		  
-		 
-		 
-			
-			 
-	
-			   
-		
-		  
-	 
-	 
-	  
-	  
-    
-	   
-	   
-		          
-		  
-	 
-       	  
-  
-
-
