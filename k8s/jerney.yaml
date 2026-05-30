@@ -8,9 +8,10 @@ metadata:
   ---
 # secrets for db's credentials
 apiVersion: v1
-kind: Secrets
+kind: Secret
 metadata:
- namespace: jerney-db-secret
+ name: jerney-db-secret
+ namespace: jerney
  labels:
   app.kubernetes.io/part-of: jerney
 type: Opaque
