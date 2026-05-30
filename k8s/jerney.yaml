@@ -336,7 +336,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
- name: jerney-db-allow- jerney-backend
+ name: jerney-db-allow-jerney-backend
  namespace: jerney
  labels: 
   app.kubernetes.io/part-of: jerney
@@ -354,11 +354,12 @@ spec:
     ports:
      - port: 5432
        protocol: TCP
+---
 #network policy to allow traffic from frontend to backend TO
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
- name: jerney-backend -allow-frontend only
+ name: jerney-backend-allow-frontend only
  namespace: jerney
 spec:
  podSelector:
