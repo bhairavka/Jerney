@@ -1,6 +1,6 @@
 FROM node:20-alpine as build
 WORKDIR /app
-COPY package.json package-lock.json* ./  
+COPY package.json package-lock.json* ./   #can igone if package-lock.jason is not present 
 RUN npm install && npm cache clean --force  #install depndencies and cleams the chache to make image samll
 COPY . .
 RUN npm run build   # build the application
